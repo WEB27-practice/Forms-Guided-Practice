@@ -9,7 +9,7 @@ const NoteForm = props => {
     
     // onChange handler to control inputs
     const handleChanges = e => {
-        setNote({title: e.target.value})
+        setNote({ ...note, [e.target.name]: e.target.value })
         console.log(note);
     }
 
@@ -23,8 +23,23 @@ const NoteForm = props => {
     return (
         <form onSubmit={submitForm}>
             <label htmlFor="title">Note Title</label>
-            <input id="title" type="text" name="title" onChange={handleChanges}/>
+            <input 
+                id="title" 
+                type="text" 
+                name="title" 
+                onChange={handleChanges}
+                placeholder="Title"
+            />
+            <label htmlFor="note">Note</label>
+            <input 
+                id="note" 
+                type="textarea" 
+                name="body" 
+                onChange={handleChanges}
+                placeholder="Note"
+            />
             <button type="submit">Add Note</button>
+
         </form>
     );
 };
