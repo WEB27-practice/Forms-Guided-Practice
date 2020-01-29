@@ -17,7 +17,8 @@ const NoteForm = props => {
     return (
         <form>
             <label htmlFor="title">Note Title</label>
-            <input id="title" type="text" onChange={handleChanges}/>
+            <input id="title" type="text" name="title" onChange={handleChanges}/>
+            <button type="submit">Add Note</button>
         </form>
     );
 };
