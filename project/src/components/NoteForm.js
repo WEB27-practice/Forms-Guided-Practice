@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const NoteForm = props => {
   // console.log("this is our props",props);
     const [note, setNote] = useState({
-        title: ''
+        title: '',
+        body: ''
     });
     
     // onChange handler to control inputs
@@ -12,10 +13,15 @@ const NoteForm = props => {
         console.log(note);
     }
 
+    const submitForm = e => {
+        e.preventDefault();
+        props.addNewNote(note);
+    }
+
     // inside React JSX, we need to use htmlFor instead of for (for is a reserved word)
     // can connect the input either by wrapping the input or by using the id on the input that matches the htmlFor
     return (
-        <form>
+        <form onSubmit={submitForm}>
             <label htmlFor="title">Note Title</label>
             <input id="title" type="text" name="title" onChange={handleChanges}/>
             <button type="submit">Add Note</button>
