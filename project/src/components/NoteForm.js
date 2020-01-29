@@ -16,6 +16,10 @@ const NoteForm = props => {
     const submitForm = e => {
         e.preventDefault();
         props.addNewNote(note);
+        setNote({
+            title: '',
+            body: ''
+        })
     }
 
     // inside React JSX, we need to use htmlFor instead of for (for is a reserved word)
@@ -27,6 +31,7 @@ const NoteForm = props => {
                 id="title" 
                 type="text" 
                 name="title" 
+                value={note.title}
                 onChange={handleChanges}
                 placeholder="Title"
             />
@@ -35,6 +40,7 @@ const NoteForm = props => {
                 id="note" 
                 type="textarea" 
                 name="body" 
+                value={note.body}
                 onChange={handleChanges}
                 placeholder="Note"
             />
